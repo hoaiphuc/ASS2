@@ -1,74 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Document</title>
 </head>
+
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item">
+                    Documentation
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            About
+                        </a>
+                        <a class="navbar-item">
+                            Jobs
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <form method="post">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-            <label class="label">Name</label>
+                <label class="label">Name</label>
             </div>
             <div class="field-body">
-            <div class="field">
-                <div class="control">
-                <input class="input is-info" name="name"  type="text" value="<%= player.name %>">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-info" name="name" type="text" value="<%= player.name %>">
+                    </div>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
                 </div>
-                <p class="help is-danger">
-                This field is required
-                </p>
-            </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-            <label class="label">Club</label>
+                <label class="label">Club</label>
             </div>
             <div class="field-body">
-            <div class="field is-narrow">
-                <div class="control">
-                <div class="select is-fullwidth">
-                    <select name="club">
-                      <%for (let club of clubList){ %>
-                        <option value="<%= club.name %>" <%= JSON.stringify(club.name) === JSON.stringify(player.club) ? 'selected' : ''  %>><%= club.name %> </option> 
-                        <% } %>
-                    </select>
+                <div class="field is-narrow">
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select name="club">
+                                <%for (let club of clubList){ %>
+                                    <option value="<%= club.name %>"
+                                        <%=JSON.stringify(club.name)===JSON.stringify(player.club) ? 'selected' : '' %>>
+                                        <%= club.name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
         </div>
-      
+
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-            <label class="label">Image</label>
+                <label class="label">Image</label>
             </div>
             <div class="field-body">
-            <div class="field">
-                <div class="control">
-                <input class="input is-info" name="image" type="text"  value="<%= player.image %>">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-info" name="image" type="text" value="<%= player.image %>">
+                    </div>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
                 </div>
-                <p class="help is-danger">
-                This field is required
-                </p>
-            </div>
             </div>
         </div>
         <div class="field is-horizontal">
-         <div class="field-body">
-            <div class="field">
-                <div class="control">
-                <button class="button is-primary" type="submit" >
-                    Save
-                </button>
-                </div>
+            <div class="field-label is-normal">
+                <label class="label"></label>
             </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-primary" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
 
+
 </body>
+
 </html>
