@@ -30,7 +30,18 @@ class playerController{
         .catch(error =>{error});
     }
     formEdit(req, res, next) {
-        res.render('/editPlayers');
+        const playerId = req.params.playerId;
+        let viewsData ={};
+       Players.findById(playerId)
+       .then((player) =>{
+          res.render('editPlayer',{
+              title: 'The detail of Player',
+              player: player,
+              clubList : clubData
+          });
+        })
+       .catch(next);
+  
     }
 }
 module.exports = new playerController;
