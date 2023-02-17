@@ -10,6 +10,18 @@ const playerSchema = new Schema({
         type: String,
         required: true
     },
+    position: {
+        type: String,
+        required: true
+    },
+    goals: {
+        type: String,
+        required: true
+    },
+    isCaptain: {
+        type: String,
+        required: true
+    },
     club: {
         type: String,
         required: true      

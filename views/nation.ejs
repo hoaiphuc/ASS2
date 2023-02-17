@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>           
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a href="/nation" class="navbar-item">
+                  Nation
+                </a>
+          
+                <a href="/player" class="navbar-item">
+                  Player
+                </a>          
+              </div>          
+            </div>
+          </nav>
+        <div class="columns">
+            <div class="column">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <!-- <th>_ID</th> -->
+                            <!-- <th>Image</th> -->
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% nations.forEach(function(nation){ %>
+                            <tr>
+                                <!-- <td>
+                                    <%= nation._id %>
+                                </td> -->
+                                <!-- <td>
+                                    <figure class="image is-64x64">
+                                        <img src=<%=nation.image %> >
+                                    </figure>
+                                </td> -->
+                                <td>
+                                    <%= nation.name %>
+                                </td>
+                                <td>
+                                    <%= nation.description %>
+                                </td>
+                                <td>
+                                    <!-- <i class="fas fa-ellipsis-v"></i> -->
+                                    <div class="buttons are-small">
+                                        <a href="nation/edit/<%= nation._id %>"><button class="button is-warning is-light">Edit</button></a>
+                                        <a href="nation/delete/<%= nation._id %>"><button class="button is-danger is-light">Delete</button></a>                                       
+                                    </div></a>
+                                </td>
+                            </tr>
+                            <% })%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column">
+                <form method="post">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Name</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-info" name="name" type="text" placeholder="e.g. Brazil">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Description</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-info" name="description" type="text" placeholder="Dream team">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label"></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary" type="submit">
+                                        Create
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

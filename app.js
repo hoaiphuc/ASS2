@@ -11,8 +11,8 @@ const connect = mongoose.connect(url);
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var playerRouter = require('./routes/playerRouter');
+var nationRouter = require('./routes/nationRouter');
 const players = require('./models/players');
 
 connect.then((db) => {
@@ -32,8 +32,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/player', playerRouter);
+app.use('/nation', nationRouter);
 
 
 // catch 404 and forward to error handler
