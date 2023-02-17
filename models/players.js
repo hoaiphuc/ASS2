@@ -15,11 +15,11 @@ const playerSchema = new Schema({
         required: true
     },
     goals: {
-        type: String,
+        type: Number,
         required: true
     },
     isCaptain: {
-        type: String,
+        type: Boolean,
         required: true
     },
     club: {

@@ -135,12 +135,21 @@
                             <label class="label">Position</label>
                         </div>
                         <div class="field-body">
-                            <div class="field">
+                            <div class="field is-narrow">
                                 <div class="control">
-                                    <input class="input is-info" name="position" type="text" placeholder="e.g. Messi">
+                                    <div class="select is-fullwidth">
+                                        <select name="position">
+                                            <%for (let position of positionList){ %>
+                                                <option value="<%= position.name %>">
+                                                    <%= position.name %>
+                                                </option>
+                                                <% } %>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="field is-horizontal">
@@ -150,7 +159,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-info" name="goals" type="text" placeholder="e.g. Messi">
+                                    <input class="input is-info" name="goals" type="number" placeholder="e.g. 12">
                                 </div>
                             </div>
                         </div>
@@ -160,15 +169,31 @@
                         <div class="field-label is-normal">
                             <label class="label">isCaptain</label>
                         </div>
-                        <div class="field-body">
+                        <!-- <div class="field-body">
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-info" name="isCaptain" type="text" placeholder="e.g. Messi">
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select name="isCaptain">
+                                            <option value=true>
+                                                true
+                                            </option>
+                                            <option value=false>
+                                                false
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">

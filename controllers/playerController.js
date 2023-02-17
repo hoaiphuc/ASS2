@@ -11,6 +11,13 @@ let clubData = [
   { id: "8", name: "Barcelona" },
 ];
 
+let positionData = [
+  { id: "1", name: "Thủ môn" },
+  { id: "2", name: "Hậu vệ" },
+  { id: "3", name: "Tiền vệ" },
+  { id: "4", name: "Tiền đạo" },
+];
+
 class playerController {
   index(req, res, next) {
     Players.find({})
@@ -19,6 +26,7 @@ class playerController {
           title: "The list of Players",
           players: players,
           clubList: clubData,
+          positionList: positionData,
         });
       })
       .catch(next);
@@ -41,6 +49,7 @@ class playerController {
           title: "The detail of Player",
           player: player,
           clubList: clubData,
+          positionList:positionData,
         });
       })
       .catch(next);
