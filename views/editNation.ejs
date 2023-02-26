@@ -18,7 +18,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input is-info" name="name" type="text" value="<%= player.name %>" required>
+                        <input class="input is-info" name="name" type="text" value="<%= nation.name %>">
                     </div>
                     <p class="help is-danger">
                         This field is required
@@ -26,36 +26,15 @@
                 </div>
             </div>
         </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Club</label>
-            </div>
-            <div class="field-body">
-                <div class="field is-narrow">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select name="club">
-                                <%for (let club of clubList){ %>
-                                    <option value="<%= club.name %>"
-                                        <%=JSON.stringify(club.name)===JSON.stringify(player.club) ? 'selected' : '' %>>
-                                        <%= club.name %>
-                                    </option>
-                                    <% } %>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Image</label>
+                <label class="label">Description</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input is-info" name="image" type="text" value="<%= player.image %>" required>
+                        <input class="input is-info" name="description" type="text" value="<%= nation.description %>">
                     </div>
                     <p class="help is-danger">
                         This field is required
@@ -78,8 +57,6 @@
             </div>
         </div>
     </form>
-
-
 </body>
 
 </html>
