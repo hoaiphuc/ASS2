@@ -1,19 +1,24 @@
 var express = require('express');
-var router = express.Router();
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
+const bodyParser = require('body-parser');
 const userController = require('../controllers/userController')
 var userRouter = express.Router();
- userRouter.route('/')
- .get(userController.index)
- .post(userController.regist)
- userRouter.route('/login')
- .get(userController.login)
-module.exports = userRouter;
-router.use(bodyParser.json());
+const { ensureAuthenticated } = require('../config/auth')
 
-module.exports = router;
+userRouter.use(bodyParser.json())
+
+userRouter.route('/')
+  .get(userController.index)
+  .post(userController.regist)
+
+userRouter.route('/login')
+  .get(userController.login)
+  .post(userController.signin)
+
+userRouter.route('/logout')
+  .get(userController.signout)
+
+userRouter.route('/dashboard')
+  .get(ensureAuthenticated, userController.dashboard)
+
+
+module.exports = userRouter;
